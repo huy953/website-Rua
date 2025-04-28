@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rùa</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: pink; /* Đổi nền thành màu hồng */
+            font-family: Arial, sans-serif;
+            color: palevioletred;
+        }
+        .content {
+            text-align: center;
+            padding-top: 10%;
+        }
+        h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        p {
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            font-size: 1rem;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .btn-left {
+            background-color: green; /* Màu xanh lá cho nút bên trái */
+        }
+        .btn-left:hover {
+            background-color: darkgreen;
+        }
+        .btn-right {
+            background-color: red; /* Màu đỏ cho nút bên phải */
+        }
+        .btn-right:hover {
+            background-color: darkred;
+        }
+        .hidden {
+            display: none;
+        }
+        .btn-small {
+            width: 100px;
+            height: 30px;
+            font-size: 0.8rem;
+            padding: 5px 10px;
+        }
+        .btn-large {
+            width: 200px;
+            height: 60px;
+            font-size: 2rem;
+            padding: 15px 30px;
+        }
+    </style>
+    <script>
+        let clickCount = 0;
+
+        function showNewContent() {
+            clickCount++;
+
+            const oldImage = document.querySelector('.content img');
+            const title = document.querySelector('.content h1');
+            const paragraph = document.querySelector('.content p');
+            const btnLeft = document.querySelector('.btn-left');
+            const btnRight = document.querySelector('.btn-right');
+
+            if (clickCount === 1) {
+                // Lần nhấn đầu tiên
+                oldImage.src = "45667cdd0895021c75635e520808d6ee.jpg";
+                title.textContent = "Đừng đuổi anh mòoo";
+                paragraph.textContent = "Cho bé chọn lại nè!!";
+                btnLeft.textContent = "Chấp Nhận";
+                btnRight.textContent = "Pleeee";
+                btnRight.style.width = "100px"; // Nút đỏ nhỏ lại
+                btnRight.style.height = "40px";
+                btnRight.style.fontSize = "0.9rem"; // Giảm kích thước chữ nút đỏ
+                btnLeft.style.width = "200px"; // Nút xanh to hơn
+                btnLeft.style.height = "80px";
+                btnLeft.style.fontSize = "1.5rem"; // Tăng kích thước chữ nút xanh
+            } else if (clickCount === 2) {
+                // Lần nhấn thứ hai
+                oldImage.src = "581095c366e2a8aa6d2858b0e36553d5.jpg";
+                title.textContent = "Anh hứa sẽ ngoan mà!";
+                paragraph.textContent = "Bé tha lỗi cho anh nha!";
+                btnLeft.textContent = "Chấp Nhận";
+                btnRight.textContent = "Khum nhóe";
+                btnRight.style.width = "80px"; // Nút đỏ nhỏ lại hơn nữa
+                btnRight.style.height = "30px";
+                btnRight.style.fontSize = "0.5rem"; // Giảm kích thước chữ nút đỏ
+                btnLeft.style.width = "300px"; // Nút xanh to hơn nữa
+                btnLeft.style.height = "150px";
+                btnLeft.style.fontSize = "2rem"; // Tăng kích thước chữ nút xanh
+            } else if (clickCount === 3) {
+                // Lần nhấn thứ ba
+                oldImage.src = "e64195ccebb12aa2cb52daf30425bb48.jpg";
+                title.textContent = "H bé có tha lỗi cho anh không?";
+                paragraph.textContent = "Có hay khum????";
+                btnLeft.textContent = "Dạ Có";
+                btnRight.textContent = "Dạ Kó";
+                btnRight.style.width = "60px"; // Nút đỏ nhỏ lại nhất
+                btnRight.style.height = "30px";
+                btnRight.style.fontSize = "0.3rem"; // Giảm kích thước chữ nút đỏ
+                btnLeft.style.width = "350px"; // Nút xanh to nhất
+                btnLeft.style.height = "150px";
+                btnLeft.style.fontSize = "4rem"; // Tăng kích thước chữ nút xanh
+            } else {
+                // Lần nhấn thứ tư trở đi quay trở lại nội dung nút xanh
+                showGreenContent();
+                
+            }
+        }
+        function showGreenContent() {
+            const oldImage = document.querySelector('.content img');
+            const title = document.querySelector('.content h1');
+            const paragraph = document.querySelector('.content p');
+            const buttonsContainer = document.querySelector('.buttons');
+            const newImage = document.createElement('img'); // Create a new image element
+        
+            // Keep the old image visible and update its source
+            oldImage.src = "3e1c30376eb04a4dc8315b2c8f3a2f3a.jpg";
+        
+            // Change the title content
+            title.textContent = "Yêu bé nhiều nhất trên đời này luôn";
+            
+            // Update the paragraph content
+            paragraph.textContent = "Ship cho bé tô hủ tiếu lìn lun";
+        
+            // Add the new image next to the paragraph
+            newImage.src = "f0ddf5cfbb85d8a6a0fefbac04a14eec.jpg";
+            newImage.style.width = "100px"; // Resize the new image
+            newImage.style.height = "auto"; // Maintain aspect ratio
+            newImage.style.marginLeft = "10px"; // Add space between text and new image
+        
+            // Wrap the paragraph and new image together
+            const paragraphContainer = document.createElement('div');
+            paragraphContainer.style.display = "inline-flex";
+            paragraphContainer.style.alignItems = "center"; // Align paragraph and new image vertically
+            paragraphContainer.appendChild(paragraph); // Add paragraph first
+            paragraphContainer.appendChild(newImage); // Add new image next to paragraph
+        
+            // Clear and update content, keeping the old image visible
+            const content = document.querySelector('.content');
+            content.innerHTML = ""; // Clear content area
+            content.appendChild(oldImage); // Add the old image back
+            content.appendChild(title); // Add the title
+            content.appendChild(paragraphContainer); // Add paragraph with new image
+        
+            // Remove all buttons
+            buttonsContainer.innerHTML = "";
+        }
+    </script>
+</head>
+<body>
+    <div class="content">
+        <img src="ebd30470e2d9708b0e42cd705d820fc9.jpg" alt="Ảnh minh họa" style="width: 200px; margin-top: 20px;">
+        <h1>Bé iu ơi cho anh xin lũii bé nhooo</h1>
+        <p>Bé chọn hoặc nếu thoát là tha lỗi anh rồi nhe iu iu</p>
+        <div class="buttons">
+            <button class="btn-left" onclick="showGreenContent()">Chấp Nhập</button>
+            <button class="btn-right" onclick="showNewContent()">Đi ra kia chơi</button>
+        </div>
+    </div>
+</body>
+</html>
